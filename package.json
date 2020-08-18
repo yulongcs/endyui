@@ -8,7 +8,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
+    "build-storybook": "build-storybook --no-dll --quiet",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'"
   },
   "publishConfig": {
@@ -81,6 +81,9 @@
     "prettier": "^2.0.5",
     "react-is": "^16.13.1",
     "react-scripts": "3.4.3",
-    "typescript": "~3.7.2"
+    "typescript": "~3.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.1"
   }
 }
