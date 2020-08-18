@@ -1,0 +1,86 @@
+{
+  "name": "@yulongcs/endyui",
+  "version": "0.1.1-1",
+  "private": false,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "tsc -p tsconfig.build.json",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@yulongcs"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "files": [
+    "dist"
+  ],
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "polished": "^3.6.5"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@storybook/addon-a11y": "^6.0.7",
+    "@storybook/addon-actions": "^6.0.7",
+    "@storybook/addon-docs": "^6.0.7",
+    "@storybook/addon-essentials": "^6.0.7",
+    "@storybook/addon-knobs": "^6.0.7",
+    "@storybook/addon-links": "^6.0.7",
+    "@storybook/addon-storysource": "^6.0.7",
+    "@storybook/addon-viewport": "^6.0.7",
+    "@storybook/node-logger": "^6.0.7",
+    "@storybook/preset-create-react-app": "^3.1.4",
+    "@storybook/react": "^6.0.7",
+    "@types/styled-components": "^5.1.2",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "babel-loader": "^8.1.0",
+    "lint-staged": "^10.2.11",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.0.5",
+    "react-is": "^16.13.1",
+    "react-scripts": "3.4.3",
+    "typescript": "~3.7.2"
+  }
+}
