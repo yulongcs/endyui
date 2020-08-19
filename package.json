@@ -5,13 +5,13 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "tsc -p tsconfig.build.json",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage --watchAll=false",
+    "test:watch": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook --no-dll --quiet",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
-    "coverage": "react-scripts test --coverage --watchAll=false",
-    "coverall": "npm run coverage  && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "coverall": "npm run test  && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@yulongcs"
@@ -49,7 +49,8 @@
     ]
   },
   "dependencies": {
-    "polished": "^3.6.5"
+    "polished": "^3.6.5",
+    "prismjs": "^1.21.0"
   },
   "peerDependencies": {
     "react": "^16.13.1",
@@ -74,6 +75,7 @@
     "@testing-library/user-event": "^7.1.2",
     "@types/jest": "^24.0.0",
     "@types/node": "^12.0.0",
+    "@types/prismjs": "^1.16.1",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/styled-components": "^5.1.2",
