@@ -9,7 +9,9 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook --no-dll --quiet",
-    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'"
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "coverage": "react-scripts test --coverage --watchAll=false",
+    "coverall": "npm run coverage  && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@yulongcs"
@@ -67,7 +69,6 @@
     "@storybook/node-logger": "^6.0.7",
     "@storybook/preset-create-react-app": "^3.1.4",
     "@storybook/react": "^6.0.7",
-    "@types/styled-components": "^5.1.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -75,15 +76,17 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "@types/styled-components": "^5.1.2",
     "babel-loader": "^8.1.0",
+    "coveralls": "^3.1.0",
     "lint-staged": "^10.2.11",
     "pre-commit": "^1.2.2",
     "prettier": "^2.0.5",
-    "react-is": "^16.13.1",
-    "react-scripts": "3.4.3",
-    "typescript": "~3.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "styled-components": "^5.1.1"
+    "react-is": "^16.13.1",
+    "react-scripts": "3.4.3",
+    "styled-components": "^5.1.1",
+    "typescript": "~3.7.2"
   }
 }
