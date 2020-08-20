@@ -34,6 +34,13 @@
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "sideEffects": false,
+  "jest": {
+    "collectCoverageFrom": [
+      "!src/**/*.stories.tsx",
+      "src/**/*.tsx",
+      "!src/**/*.snap"
+    ]
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -50,8 +57,14 @@
     ]
   },
   "dependencies": {
+    "coveralls": "^3.1.0",
     "polished": "^3.6.5",
-    "prismjs": "^1.21.0"
+    "prismjs": "^1.21.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.3",
+    "styled-components": "^5.1.1",
+    "typescript": "~3.7.2"
   },
   "peerDependencies": {
     "react": "^16.13.1",
@@ -81,15 +94,9 @@
     "@types/react-dom": "^16.9.0",
     "@types/styled-components": "^5.1.2",
     "babel-loader": "^8.1.0",
-    "coveralls": "^3.1.0",
     "lint-staged": "^10.2.11",
     "pre-commit": "^1.2.2",
     "prettier": "^2.0.5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-is": "^16.13.1",
-    "react-scripts": "3.4.3",
-    "styled-components": "^5.1.1",
-    "typescript": "~3.7.2"
+    "react-is": "^16.13.1"
   }
 }
