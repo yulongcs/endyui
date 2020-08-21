@@ -1,0 +1,57 @@
+diff --git a/node_modules/np/source/prerequisite-tasks.js b/node_modules/np/source/prerequisite-tasks.js
+index 211ba97..2109b20 100644
+--- a/node_modules/np/source/prerequisite-tasks.js
++++ b/node_modules/np/source/prerequisite-tasks.js
+@@ -28,30 +28,30 @@ module.exports = (input, pkg, options) => {
+ 				version.verifyRequirementSatisfied('yarn', yarnVersion);
+ 			}
+ 		},
+-		{
+-			title: 'Verify user is authenticated',
+-			skip: () => process.env.NODE_ENV === 'test' || pkg.private,
+-			task: async () => {
+-				const username = await npm.username({
+-					externalRegistry: isExternalRegistry ? pkg.publishConfig.registry : false
+-				});
++		// {
++		// 	title: 'Verify user is authenticated',
++		// 	skip: () => process.env.NODE_ENV === 'test' || pkg.private,
++		// 	task: async () => {
++		// 		const username = await npm.username({
++		// 			externalRegistry: isExternalRegistry ? pkg.publishConfig.registry : false
++		// 		});
+ 
+-				const collaborators = await npm.collaborators(pkg);
+-				if (!collaborators) {
+-					return;
+-				}
++		// 		const collaborators = await npm.collaborators(pkg);
++		// 		if (!collaborators) {
++		// 			return;
++		// 		}
+ 
+-				const json = JSON.parse(collaborators);
+-				const permissions = json[username];
+-				if (!permissions || !permissions.includes('write')) {
+-					throw new Error('You do not have write permissions required to publish this package.');
+-				}
+-			}
+-		},
+-		{
+-			title: 'Check git version',
+-			task: async () => git.verifyRecentGitVersion()
+-		},
++		// 		const json = JSON.parse(collaborators);
++		// 		const permissions = json[username];
++		// 		if (!permissions || !permissions.includes('write')) {
++		// 			throw new Error('You do not have write permissions required to publish this package.');
++		// 		}
++		// 	}
++		// },
++		// {
++		// 	title: 'Check git version',
++		// 	task: async () => git.verifyRecentGitVersion()
++		// },
+ 		{
+ 			title: 'Check git remote',
+ 			task: async () => git.verifyRemoteIsValid()

@@ -12,7 +12,9 @@
     "test": "react-scripts test --watchAll=false",
     "test:watch": "react-scripts test",
     "coverage": "react-scripts test --coverage --watchAll=false",
-    "coverall": "npm run coverage  && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "coverall": "npm run coverage  && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "postinstall": "patch-package",
+    "release": "npm run build && np"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@yulongcs"
@@ -95,6 +97,8 @@
     "@types/styled-components": "^5.1.2",
     "babel-loader": "^8.1.0",
     "lint-staged": "^10.2.11",
+    "np": "^6.4.0",
+    "patch-package": "^6.2.2",
     "pre-commit": "^1.2.2",
     "prettier": "^2.0.5",
     "react-is": "^16.13.1"
