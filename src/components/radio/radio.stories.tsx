@@ -6,7 +6,7 @@ import { color } from "../shared/styles";
 import { Icon } from "../icon";
 
 export default {
-  title: "项目/Radio",
+  title: "组件/Radio",
   component: Radio,
   decorators: [withKnobs],
 };

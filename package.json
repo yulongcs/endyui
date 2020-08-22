@@ -4,7 +4,9 @@
   "private": false,
   "scripts": {
     "start": "react-scripts start",
-    "build": "tsc -p tsconfig.build.json",
+    "build": "npm run build-all & npm run build-cjs",
+    "build-cjs": "microbundle build --tsconfig tsconfig.build.json --jsx React.createElement  --compress=false --format cjs",
+    "build-all": "microbundle build --tsconfig tsconfig.build.json --jsx React.createElement  --compress=false",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook --no-dll --quiet",
@@ -14,7 +16,7 @@
     "coverage": "react-scripts test --coverage --watchAll=false",
     "coverall": "npm run coverage  && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "postinstall": "patch-package",
-    "release": "npm run build && np"
+    "release": "np"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@yulongcs"
@@ -33,7 +35,8 @@
   "files": [
     "dist"
   ],
-  "module": "dist/index.js",
+  "main": "dist/endyui.js",
+  "module": "dist/endyui.modern.js",
   "types": "dist/index.d.ts",
   "sideEffects": false,
   "jest": {
@@ -97,6 +100,7 @@
     "@types/styled-components": "^5.1.2",
     "babel-loader": "^8.1.0",
     "lint-staged": "^10.2.11",
+    "microbundle": "^0.12.3",
     "np": "^6.4.0",
     "patch-package": "^6.2.2",
     "plop": "^2.7.4",
