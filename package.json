@@ -4,7 +4,7 @@
   "private": false,
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm run build-all && npm run build-cjs",
+    "build": "rm -rf ./dist && npm run build-all && npm run build-cjs",
     "build-cjs": "microbundle build --tsconfig tsconfig.build.json --jsx React.createElement --format cjs",
     "build-all": "microbundle build --tsconfig tsconfig.build.json --jsx React.createElement",
     "eject": "react-scripts eject",
