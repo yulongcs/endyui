@@ -16,7 +16,7 @@
     "coverage": "react-scripts test --coverage --watchAll=false",
     "coverall": "npm run coverage  && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "postinstall": "patch-package",
-    "release": "np"
+    "release": "npm run build && np"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@yulongcs"
