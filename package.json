@@ -4,9 +4,9 @@
   "private": false,
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm run build-all & npm run build-cjs",
-    "build-cjs": "microbundle build --tsconfig tsconfig.build.json --jsx React.createElement  --compress=false --format cjs",
-    "build-all": "microbundle build --tsconfig tsconfig.build.json --jsx React.createElement  --compress=false",
+    "build": "npm run build-all && npm run build-cjs",
+    "build-cjs": "microbundle build --tsconfig tsconfig.build.json --jsx React.createElement --format cjs",
+    "build-all": "microbundle build --tsconfig tsconfig.build.json --jsx React.createElement",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook --no-dll --quiet",
