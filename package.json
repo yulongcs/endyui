@@ -1,6 +1,6 @@
 {
   "name": "@yulongcs/endyui",
-  "version": "0.1.1-3",
+  "version": "0.1.2-0",
   "private": false,
   "scripts": {
     "start": "react-scripts start",
