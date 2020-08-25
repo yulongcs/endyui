@@ -11,6 +11,7 @@ module.exports = {
     "@storybook/addon-viewport",
     "@storybook/addon-knobs",
     { name: "@storybook/addon-docs", options: { configureJSX: true } },
+    '@storybook/addon-controls',
     "@storybook/addon-a11y",
     "@storybook/addon-storysource",
   ],webpackFinal: async (config) => {
