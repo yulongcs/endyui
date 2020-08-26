@@ -270,7 +270,7 @@ export function Carousel(props: PropsWithChildren<CarouselProps>) {
       }, autoplayDelay);
     }
     return () => window.clearTimeout(timer);
-  }, [autoplay, autoplayDelay, indexMap, totalLen]);
+  }, [autoplay, autoplayDelay, autoplayReverse, indexMap, totalLen]);
 
   return (
     <Wrapper
