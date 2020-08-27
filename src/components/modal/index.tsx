@@ -116,7 +116,7 @@ export type ModalProps = {
   /** 容器位置 */
   container?: Element;
   /** 父组件setstate */
-  parentSetState?: (v: boolean) => void;
+  parentSetState: (v: boolean) => void;
   /** 弹出框标题 */
   title?: ReactNode;
   /** 是否有确认按钮 */
