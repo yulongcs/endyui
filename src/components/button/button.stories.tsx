@@ -1,5 +1,6 @@
 import React from "react";
 import Button, {
+  Button,
   APPEARANCES,
   AppearancesTypes,
   SIZES,

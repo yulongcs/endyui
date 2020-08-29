@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent, cleanup } from '@testing-library/react';
-import Button, { ButtonProps, btnPadding } from '../index';
+import { Button, ButtonProps, btnPadding } from '../index';
 import { color, typography } from '../../shared/styles';
 const defaultProps = {
   onClick: jest.fn(),

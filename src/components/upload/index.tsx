@@ -10,7 +10,7 @@ import axios, {
   AxiosRequestConfig,
   CancelTokenSource
 } from "axios";
-import Button from "../button";
+import { Button } from "../button";
 import { Progress } from "../progress";
 import { message } from "../message";
 import { Modal } from "../modal";
@@ -551,13 +551,20 @@ export function Upload(props: UploadProps) {
         multiple={multiple}
         accept={accept}
       />
-      <Button
-        onClick={handleClick}
-        isLoading={resolveBtnLoading(flist)}
-        loadingText="上传中..."
-      >
-        upload
-      </Button>
+      {
+        uploadMode === "default" && progress && (
+          <UploadList flist={flist} onRemove={onRemove}></UploadList>
+        )
+      }
+      {
+        uploadMode === "img" && (
+          <ImageList
+            flist={flist}
+            setFlist={setFlist}
+            onRemove={onRemove}
+          ></ImageList>
+        )
+      }
       {
         shouldShow && uploadMode === "default" && (
           <span onClick={handleClick}>
@@ -705,12 +712,12 @@ Upload.defaultProps = {
   failCallbakc: () => message.error("上传失败"),
 };
 
-interface UploadListProps {
+export interface UploadListProps {
   flist: ProgressBar[];
   onRemove: (item: ProgressBar) => void;
 }
 
-function UploadList(props: UploadListProps) {
+export function UploadList(props: UploadListProps) {
   const { flist, onRemove } = props;
   return (
     <ul style={{ padding: "10px" }}>
@@ -750,7 +757,7 @@ function UploadList(props: UploadListProps) {
   );
 }
 
-interface imageListProps extends UploadListProps {
+export interface imageListProps extends UploadListProps {
   setFlist: React.Dispatch<React.SetStateAction<ProgressBar[]>>;
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { fireEvent, act } from "@testing-library/react";
 import { message, MessageType, createMessage } from "../index";
-import Button from "../../button";
+import { Button } from "../../button";
 import { unmountComponentAtNode, render } from "react-dom";
 
 let container: HTMLDivElement;

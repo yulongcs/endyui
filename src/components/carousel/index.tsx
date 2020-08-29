@@ -9,7 +9,7 @@ import React, {
   useMemo,
 } from "react";
 import styled from "styled-components";
-import Radio from "../radio";
+import { Radio } from "../radio";
 import { color, typography } from "../shared/styles";
 import { darken, rgba, opacify } from "polished";
 import { easing } from "../shared/animation";

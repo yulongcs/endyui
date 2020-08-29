@@ -8,7 +8,7 @@ import React, {
   useEffect,
 } from "react";
 import {createPortal} from "react-dom";
-import Button from "../button";
+import { Button } from "../button";
 import { Icon } from "../icon";
 import styled, { css, keyframes } from "styled-components";
 import { color, typography } from "../shared/styles";

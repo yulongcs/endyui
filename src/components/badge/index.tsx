@@ -86,5 +86,3 @@ export function Badge(props: PropsWithChildren< BadgeProps>) {
 Badge.defaultProps = {
   status: "neutral",
 };
-
-export default Badge;

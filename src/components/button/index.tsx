@@ -423,7 +423,7 @@ const StyledButton = styled.button<ButtonProps>`
 
 `;
 
-function Button(props: PropsWithChildren<ButtonProps>) {
+export function Button(props: PropsWithChildren<ButtonProps>) {
   const { isLoading, loadingText, isLink, children } = props;
   const buttonInner = (
     <>
@@ -455,5 +455,3 @@ Button.defaultProps = {
   size: SIZES.medium,
   ButtonWrapper: undefined,
 };
-
-export default Button;

@@ -11,15 +11,6 @@ Object {
           type="file"
           value=""
         />
-        <button
-          class="sc-AxiKw eSQBUA"
-        >
-          <span
-            class="sc-AxjAm daxcKJ"
-          >
-            upload
-          </span>
-        </button>
         <span>
           <button
             class="sc-AxiKw eSQBUA"
@@ -41,15 +32,6 @@ Object {
         type="file"
         value=""
       />
-      <button
-        class="sc-AxiKw eSQBUA"
-      >
-        <span
-          class="sc-AxjAm daxcKJ"
-        >
-          upload
-        </span>
-      </button>
       <span>
         <button
           class="sc-AxiKw eSQBUA"
