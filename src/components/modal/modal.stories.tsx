@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Modal } from "./index";
-import Button from "../button";
+import { Button } from "../button";
 import {
   withKnobs,
   text,

@@ -1,6 +1,6 @@
 import React from "react";
 import { Message, MessageType, message } from "./index";
-import Button from "../button";
+import { Button } from "../button";
 import { Icon } from "../icon";
 import {
   withKnobs,
