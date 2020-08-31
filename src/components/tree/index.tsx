@@ -31,9 +31,13 @@ interface TreeItemType {
   level: number;
   itemkey: string;
   highlight: DragHighlight;
+  borderColor?: string;
 }
 
-type TreeGragType = { gkey: string } & DragControlData;
+type TreeGragType = {
+  gkey: string,
+  backColor?: string,
+} & DragControlData;
 
 const TreeGrag = styled.div<TreeGragType>`
   position: absolute;
@@ -53,7 +57,7 @@ const TreeGrag = styled.div<TreeGragType>`
   }};
   ${(props) => {
     if (props.itemkey === props.gkey) {
-      return 'background: #00000030;';
+      return `background: ${props.backColor};`;
     }
   }}
 `;
@@ -68,7 +72,7 @@ const TreeItem = styled.div<TreeItemType>`
   overflow: hidden;
   ${(props) => {
     if (props.highlight.drag && props.highlight.itemkey === props.itemkey) {
-      return 'border: 1px dashed #53c94fa8;';
+      return `border: 1px dashed ${props.borderColor};`;
     } else {
       return '';
     }
@@ -148,14 +152,6 @@ const flatten = function (
     }
   });
   return arr;
-};
-
-const root = {
-  level: 0,
-  visible: true,
-  expand: true,
-  children: source,
-  value: 'root',
 };
 
 interface itemProps {
@@ -393,6 +389,8 @@ const changeVisible = (item: itemPropsRequired, callback: Function) => {
 export function Tree(props: TreeProps) {
   const img = new Image();
   img.src = 'https://www.easyicon.net/api/resizeApi.php?id=1200841&size=32';
+ 
+  const { backColor, borderColor, drag } = props;
 
   const root = useMemo(() => {
     return {
@@ -475,7 +473,8 @@ export function Tree(props: TreeProps) {
               itemkey={g.key}
               highlight={highlight}
               level={g.level}
-              draggable
+              borderColor={borderColor}
+              draggable={drag}
               onClick={() => changeVisible(g, callback)}
               key={g.key}
               onDragStart={(e) => {
@@ -513,6 +512,7 @@ export function Tree(props: TreeProps) {
               {dragOver.drag && (
                 <TreeGrag
                   gkey={g.key}
+                  backColor={backColor}
                   drag={dragOver.drag}
                   x={dragOver.x}
                   itemkey={dragOver.itemkey}
