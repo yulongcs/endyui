@@ -98,31 +98,6 @@ const TreeIcon = styled.span<{ g: itemPropsRequired }>`
   }
 `;
 
-const source = [
-  {
-    value: '北京分行',
-    children: [
-      {
-        value: '朝阳支行办事处',
-        children: [
-          { value: '朝阳支行办事处-1' },
-          { value: '朝阳支行办事处-2' },
-        ],
-      },
-      { value: '海淀支行办事处' },
-      { value: '石景山支行办事处' },
-    ],
-  },
-  {
-    value: '天津分行',
-    children: [
-      { value: '和平支行办事处' },
-      { value: '河东支行办事处' },
-      { value: '南开支行办事处' },
-    ],
-  },
-];
-
 const flatten = function (
   list: Array<itemProps>,
   level = 1,
@@ -390,7 +365,7 @@ export function Tree(props: TreeProps) {
   const img = new Image();
   img.src = 'https://www.easyicon.net/api/resizeApi.php?id=1200841&size=32';
  
-  const { backColor, borderColor, drag } = props;
+  const { source, backColor, borderColor, drag } = props;
 
   const root = useMemo(() => {
     return {
@@ -404,7 +379,6 @@ export function Tree(props: TreeProps) {
   const [dragUpdate, setDragUpdate] = useState(0);
   const data = useMemo(() => {
     return flatten(root.children, 1, root);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [root, dragUpdate]);
   const [start, setStart] = useState(0);
   const forceUpdate = useState(0)[1];
@@ -478,7 +452,7 @@ export function Tree(props: TreeProps) {
               onClick={() => changeVisible(g, callback)}
               key={g.key}
               onDragStart={(e) => {
-                e.dataTransfer.setData('atomkey', `${g.key}`);
+                e.dataTransfer.setData('endykey', `${g.key}`);
                 e.dataTransfer.setDragImage(img, 29, 29);
                 setHighlight({
                   drag: true,
@@ -490,7 +464,7 @@ export function Tree(props: TreeProps) {
                 throttle(dragHandler)(e.clientX, g.key, g);
               }}
               onDrop={(e) => {
-                const key = e.dataTransfer.getData('atomkey');
+                const key = e.dataTransfer.getData('endykey');
                 const left = e.clientX;
                 const diff = left - start; //离顶部差值
                 const res = switchInsert(diff, g);
