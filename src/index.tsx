@@ -13,3 +13,4 @@ export * from "./components/modal";
 export * from "./components/progress";
 export * from "./components/radio";
 export * from "./components/upload";
+export * from "./components/tree";
