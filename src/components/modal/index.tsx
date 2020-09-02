@@ -13,31 +13,8 @@ import { Icon } from "../icon";
 import styled, { css, keyframes } from "styled-components";
 import { color, typography } from "../shared/styles";
 import { darken, rgba, opacify } from "polished";
-import { easing } from "../shared/animation";
-
-export const modalOpenAnimate = keyframes`
-  0% {
-    opacity: 0;
-    transform: scaleY(0,0);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1,1);
-    transform-origin: center;
-  }
-`;
-
-export const modalCloseAnimate = keyframes`
-  0% {
-    opacity: 0;
-    transform: scale(1,1);
-    transform-origin: center;
-  }
-  100% {
-    opacity: 0;
-    transform: scaleY(0,0);
-  }
-`;
+import { easing, modalOpenAnimate, modalCloseAnimate } from "../shared/animation";
+import { useStateAnimation } from "../../hooks/useStateAnimation"
 
 const ModalWrapper = styled.div`
   position: fixed;
@@ -150,26 +127,6 @@ export type ModalProps = {
   /** 没点确认于取消，直接关闭的回调 */
   closeCallback?: () => void;
 };
-
-export function useStateAnimation(
-  parentSetState: (v: boolean) => void,
-  delay: number = 300
-): [boolean, (v: boolean) => void, () => void] {
-  const [state, setState] = useState(true);
-  const [innerClose, unmount] = useMemo(() => {
-    let timer: number;
-    let innerclose = (v: boolean) => {
-      setState(v);
-      timer = window.setTimeout(() => {
-        parentSetState(v);
-        setState(true);
-      }, delay);
-    };
-    let unmount = () => window.clearTimeout(timer);
-    return [innerclose, unmount];
-  }, [setState, parentSetState, delay]);
-  return [state, innerClose, unmount];
-}
 
 export function useStopScroll(state: boolean, delay: number, open?: boolean) {
   if (open) {
