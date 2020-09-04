@@ -8,8 +8,8 @@ const ModalTester = (props: ModalProps) => {
   const [visible, setVisible] = useState(defaultVisible); 
   return (
     <Modal
-      parentSetState = {setVisible}
       {...props}
+      parentSetState = {setVisible}
       visible = {visible}
     />
   )

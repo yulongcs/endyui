@@ -46,8 +46,8 @@ export const SIZES: sizeObj = {
 export type SizesTypes = keyof typeof SIZES;
 
 export const btnPadding = {
-    small: '8px 16px',
-    medium: '13px 20px',
+  small: '8px 16px',
+  medium: '13px 20px',
 };
 
 const Text = styled.span`
@@ -125,6 +125,7 @@ const StyledButton = styled.button<ButtonProps>`
 
       &:focus {
         box-shadow: ${rgba(color.primary, 0.4)} 0 1px 9px 2px;
+        outline: none;
       }
 
       &:focus:hover {
