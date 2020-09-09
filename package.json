@@ -5,8 +5,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "rm -rf ./dist && npm run build-all && npm run build-cjs",
-    "build-cjs": "microbundle build --tsconfig tsconfig.build.json --jsx React.createElement --format cjs",
-    "build-all": "microbundle build --tsconfig tsconfig.build.json --jsx React.createElement",
+    "build-cjs": "microbundle build --tsconfig tsconfig.build.json --jsx React.createElement --compress=false --format cjs",
+    "build-all": "microbundle build --tsconfig tsconfig.build.json --jsx React.createElement --compress=false",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook --no-dll --quiet",
